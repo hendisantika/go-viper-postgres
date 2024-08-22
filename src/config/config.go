@@ -50,3 +50,12 @@ type RedisConfig struct {
 	PoolSize           int
 	PoolTimeout        time.Duration
 }
+
+type PasswordConfig struct {
+	IncludeChars     bool
+	IncludeDigits    bool
+	MinLength        int
+	MaxLength        int
+	IncludeUppercase bool
+	IncludeLowercase bool
+}
