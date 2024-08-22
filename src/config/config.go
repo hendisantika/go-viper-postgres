@@ -1,5 +1,7 @@
 package config
 
+import "time"
+
 type Config struct {
 	Server   ServerConfig
 	Postgres PostgresConfig
@@ -22,4 +24,16 @@ type LoggerConfig struct {
 	Encoding string
 	Level    string
 	Logger   string
+}
+
+type PostgresConfig struct {
+	Host            string
+	Port            string
+	User            string
+	Password        string
+	DbName          string
+	SSLMode         string
+	MaxIdleConns    int
+	MaxOpenConns    int
+	ConnMaxLifetime time.Duration
 }
