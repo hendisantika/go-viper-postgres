@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"go-viper-postgres/src/api/routers"
 	"go-viper-postgres/src/config"
 )
 
