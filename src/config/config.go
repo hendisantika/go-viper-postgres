@@ -16,3 +16,10 @@ type ServerConfig struct {
 	ExternalPort string
 	RunMode      string
 }
+
+type LoggerConfig struct {
+	FilePath string
+	Encoding string
+	Level    string
+	Logger   string
+}
