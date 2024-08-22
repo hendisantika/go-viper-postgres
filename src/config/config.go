@@ -1,6 +1,7 @@
 package config
 
 import (
+	"errors"
 	"github.com/spf13/viper"
 	"log"
 	"os"
@@ -131,4 +132,14 @@ func LoadConfig(filename string, fileType string) (*viper.Viper, error) {
 		return nil, err
 	}
 	return v, nil
+}
+
+func getConfigPath(env string) string {
+	if env == "docker" {
+		return "/app/config/config-docker"
+	} else if env == "production" {
+		return "/config/config-production"
+	} else {
+		return "/config/config-development"
+	}
 }
