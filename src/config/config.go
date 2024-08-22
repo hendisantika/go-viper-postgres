@@ -59,3 +59,7 @@ type PasswordConfig struct {
 	IncludeUppercase bool
 	IncludeLowercase bool
 }
+
+type CorsConfig struct {
+	AllowOrigins string
+}
