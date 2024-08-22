@@ -10,3 +10,9 @@ type Config struct {
 	Otp      OtpConfig
 	JWT      JWTConfig
 }
+
+type ServerConfig struct {
+	InternalPort string
+	ExternalPort string
+	RunMode      string
+}
