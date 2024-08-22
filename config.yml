@@ -2,11 +2,11 @@ database:
   statement_timeout: "5s"
   master:
     driver: "postgres"
-    name: "yuji"
-    host: "localhost"
-    port: "5432"
-    user: "tms"
-    password: "S3cret"
+    name: "$DB_NAME:-Jujutsu"
+    host: "$DB_HOST:-localhost"
+    port: "$DB_PORT:-5432"
+    user: "$DB_USER:-yuji"
+    password: "$DB_PASS:-S3cret"
     max_open: 50
     max_idle: 10
     max_life_time: 3m
