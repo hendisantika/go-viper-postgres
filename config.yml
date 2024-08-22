@@ -1,0 +1,30 @@
+database:
+  statement_timeout: "5s"
+  master:
+    driver: "postgres"
+    name: "yuji"
+    host: "localhost"
+    port: "5432"
+    user: "tms"
+    password: "S3cret"
+    max_open: 50
+    max_idle: 10
+    max_life_time: 3m
+    max_idle_time: 3m
+
+redis:
+  host: "localhost"
+  port: "6379"
+  auth: "S3cret"
+
+app:
+  env: "local"
+  name: "transaction-management"
+  api_prefix: "transaction-management"
+  enable_datadog: false
+
+server:
+  port: "8080"
+
+log:
+  level: "debug"

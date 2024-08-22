@@ -1,5 +1,12 @@
 package main
 
+import (
+	"fmt"
+	"go-viper-postgres/config"
+	"log"
+	"os"
+)
+
 type Config struct {
 	Host     string
 	Port     int
@@ -8,8 +15,12 @@ type Config struct {
 }
 
 func main() {
+	os.Setenv("PORT", "5432")
 
+	cfg, err := config.LoadConfig[Config](".")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%+v\n", cfg)
 }
-
-//TIP See GoLand help at <a href="https://www.jetbrains.com/help/go/">jetbrains.com/help/go/</a>.
-// Also, you can try interactive lessons for GoLand by selecting 'Help | Learn IDE Features' from the main menu.
