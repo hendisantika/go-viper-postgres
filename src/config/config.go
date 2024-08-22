@@ -1,6 +1,10 @@
 package config
 
-import "time"
+import (
+	"log"
+	"os"
+	"time"
+)
 
 type Config struct {
 	Server   ServerConfig
@@ -75,4 +79,27 @@ type JWTConfig struct {
 	RefreshTokenExpireDuration time.Duration
 	Secret                     string
 	RefreshSecret              string
+}
+
+func GetConfig() *Config {
+	cfgPath := getConfigPath(os.Getenv("APP_ENV"))
+	v, err := LoadConfig(cfgPath, "yml")
+	if err != nil {
+		log.Fatalf("Error in load config %v", err)
+	}
+
+	cfg, err := ParseConfig(v)
+	envPort := os.Getenv("PORT")
+	if envPort != "" {
+		cfg.Server.ExternalPort = envPort
+		log.Printf("Set external port from environment -> %s", cfg.Server.ExternalPort)
+	} else {
+		cfg.Server.ExternalPort = cfg.Server.InternalPort
+		log.Printf("Set external port from environment -> %s", cfg.Server.ExternalPort)
+	}
+	if err != nil {
+		log.Fatalf("Error in parse config %v", err)
+	}
+
+	return cfg
 }
