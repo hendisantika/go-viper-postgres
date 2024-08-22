@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/spf13/viper"
 	"log"
 	"os"
 	"time"
@@ -102,4 +103,14 @@ func GetConfig() *Config {
 	}
 
 	return cfg
+}
+
+func ParseConfig(v *viper.Viper) (*Config, error) {
+	var cfg Config
+	err := v.Unmarshal(&cfg)
+	if err != nil {
+		log.Printf("Unable to parse config: %v", err)
+		return nil, err
+	}
+	return &cfg, nil
 }
