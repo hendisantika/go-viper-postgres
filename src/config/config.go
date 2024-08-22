@@ -69,3 +69,10 @@ type OtpConfig struct {
 	Digits     int
 	Limiter    time.Duration
 }
+
+type JWTConfig struct {
+	AccessTokenExpireDuration  time.Duration
+	RefreshTokenExpireDuration time.Duration
+	Secret                     string
+	RefreshSecret              string
+}
