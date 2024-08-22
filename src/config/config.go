@@ -37,3 +37,16 @@ type PostgresConfig struct {
 	MaxOpenConns    int
 	ConnMaxLifetime time.Duration
 }
+
+type RedisConfig struct {
+	Host               string
+	Port               string
+	Password           string
+	Db                 string
+	DialTimeout        time.Duration
+	ReadTimeout        time.Duration
+	WriteTimeout       time.Duration
+	IdleCheckFrequency time.Duration
+	PoolSize           int
+	PoolTimeout        time.Duration
+}
